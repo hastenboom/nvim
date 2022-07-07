@@ -6,7 +6,7 @@ nnoremap <space>rl :so ~/.config/nvim/init.vim<CR>
 nnoremap <space>rc :e ~/.config/nvim/init.vim<CR>
 
 set number
-set relativenumber
+"set relativenumber
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -43,8 +43,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
   " highlight
-  Plug 'cateduo/vsdark.nvim'
-  Plug 'jackguo380/vim-lsp-cxx-highlight'
+  "Plug 'cateduo/vsdark.nvim'
+  "Plug 'jackguo380/vim-lsp-cxx-highlight'
   
   " lsp
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
