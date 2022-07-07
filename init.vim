@@ -1,10 +1,3 @@
-" request:
-"   1. node
-"   2. npm
-"   3. python3 (pip3 install neovim)
-nnoremap <space>rl :so ~/.config/nvim/init.vim<CR>
-nnoremap <space>rc :e ~/.config/nvim/init.vim<CR>
-
 set number
 "set relativenumber
 set expandtab
@@ -42,10 +35,6 @@ call plug#begin('~/.config/nvim/plugged')
   " file finder
   Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
-  " highlight
-  "Plug 'cateduo/vsdark.nvim'
-  "Plug 'jackguo380/vim-lsp-cxx-highlight'
-  
   " lsp
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   
@@ -61,14 +50,6 @@ call plug#end()
 " =================================
 " ===   plugins  configuration  ===
 " =================================
-
-" ==== tomtom/tcomment_vim ====
-
-"let g:tcomment_textobject_inlinecomment = ''
-"nmap <LEADER>cn g>c
-"vmap <LEADER>cn g>
-"nmap <LEADER>cu g<c
-"vmap <LEADER>cu g<
 
 
 " ==== preservim/nerdtree ====
@@ -88,32 +69,6 @@ nmap <leader>f :Leaderf file<CR>
 nmap <leader>b :Leaderf! buffer<CR>
 nmap <leader>F :Leaderf rg<CR>
 let g:Lf_DevIconsFont = "DroidSansMono Nerd Font Mono"
-
-
-" ==== cateduo/vsdark.nvim ====
-
-"set termguicolors
-"let g:vsdark_style = "dark"
-"colorscheme vsdark
-
-
-" ==== jackguo380/vim-lsp-cxx-highlight ====
-
-"hi default link LspCxxHlSymFunction cxxFunction
-"hi default link LspCxxHlSymFunctionParameter cxxParameter
-"hi default link LspCxxHlSymFileVariableStatic cxxFileVariableStatic
-"hi default link LspCxxHlSymStruct cxxStruct
-"hi default link LspCxxHlSymStructField cxxStructField
-"hi default link LspCxxHlSymFileTypeAlias cxxTypeAlias
-"hi default link LspCxxHlSymClassField cxxStructField
-"hi default link LspCxxHlSymEnum cxxEnum
-"hi default link LspCxxHlSymVariableExtern cxxFileVariableStatic
-"hi default link LspCxxHlSymVariable cxxVariable
-"hi default link LspCxxHlSymMacro cxxMacro
-"hi default link LspCxxHlSymEnumMember cxxEnumMember
-"hi default link LspCxxHlSymParameter cxxParameter
-"hi default link LspCxxHlSymClass cxxTypeAlias
-
 
 " ==== neoclide/coc.nvim ====
 
@@ -211,23 +166,4 @@ function! s:generate_compile_commands()
       \ -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -S . -B .vscode'
 endfunction
 command! -nargs=0 Gcmake :call s:generate_compile_commands()
-
-" ==== puremourning/vimspector ====
-let g:vimspector_enable_mappings = 'HUMAN'
-
-function! s:generate_vimspector_conf()
-  if empty(glob( '.vimspector.json' ))
-    if &filetype == 'c' || 'cpp' 
-      !cp ~/.config/nvim/vimspector_conf/c.json ./.vimspector.json
-    elseif &filetype == 'python'
-      !cp ~/.config/nvim/vimspector_conf/python.json ./.vimspector.json
-    endif
-  endif
-  e .vimspector.json
-endfunction
-
-command! -nargs=0 Gvimspector :call s:generate_vimspector_conf()
-
-nmap <Leader>v <Plug>VimspectorBalloonEval
-xmap <Leader>v <Plug>vimspectorBalloonEval
 
